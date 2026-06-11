@@ -1,0 +1,131 @@
+---
+const trustIndicators = [
+  'Claude Partner Network Qualified',
+  'Fintech, Commerce & Operations Expertise',
+  'Emerging Market Execution',
+  'AI-Enabled Product Engineering',
+];
+
+// Nodes for the abstract "operations map" — reinforces the positioning that
+// payments, orders, customers, merchants, inventory and approvals move together.
+const nodes = [
+  { label: 'Orders', x: 280, y: 64 },
+  { label: 'Payments', x: 470, y: 150 },
+  { label: 'Customers', x: 470, y: 312 },
+  { label: 'Inventory', x: 280, y: 398 },
+  { label: 'Merchants', x: 90, y: 312 },
+  { label: 'Approvals', x: 90, y: 150 },
+];
+const hub = { x: 280, y: 231 };
+---
+
+<section id="top" class="relative overflow-hidden pt-[calc(var(--header-h)+3.5rem)] pb-20 sm:pb-24 lg:pt-[calc(var(--header-h)+5rem)]">
+  <div class="grid-overlay pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
+
+  <div class="shell">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+      <!-- Copy -->
+      <div class="max-w-2xl">
+        <p class="eyebrow mb-6">AI Transformation &amp; Product Engineering</p>
+
+        <h1 class="text-balance text-4xl leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
+          <span class="text-gradient">AI Transformation &amp; Product Engineering</span>
+          for Transaction-Heavy Businesses
+        </h1>
+
+        <p class="mt-6 text-lg leading-relaxed text-muted sm:text-xl">
+          Technoliberals helps fintech, commerce, logistics, and enterprise teams turn complex
+          operations into fast, intelligent, scalable digital systems.
+        </p>
+
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-muted-2">
+          We work with businesses where payments, orders, customers, merchants, inventory,
+          approvals, and data move together — and we turn that complexity into products that work.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+          <a href="#services" class="btn-secondary">Explore Services</a>
+        </div>
+
+        <ul class="mt-10 flex flex-wrap gap-2.5" aria-label="What sets us apart">
+          {
+            trustIndicators.map((item) => (
+              <li class="chip">
+                <span class="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Abstract operations map -->
+      <div class="relative hidden lg:block" aria-hidden="true">
+        <div class="card relative overflow-hidden rounded-4xl p-5">
+          <div class="mb-4 flex items-center justify-between">
+            <span class="eyebrow">Operations Map</span>
+            <span class="chip">Live systems</span>
+          </div>
+          <svg viewBox="0 0 560 462" class="w-full" role="presentation">
+            <defs>
+              <linearGradient id="hub-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8093ff"></stop>
+                <stop offset="1" stop-color="#5fe3cf"></stop>
+              </linearGradient>
+            </defs>
+            <!-- Connecting lines -->
+            {
+              nodes.map((n) => (
+                <line
+                  x1={hub.x}
+                  y1={hub.y}
+                  x2={n.x}
+                  y2={n.y}
+                  stroke="url(#hub-grad)"
+                  stroke-opacity="0.4"
+                  stroke-width="1.5"
+                />
+              ))
+            }
+            <!-- Outer nodes -->
+            {
+              nodes.map((n) => (
+                <g>
+                  <rect
+                    x={n.x - 66}
+                    y={n.y - 22}
+                    width="132"
+                    height="44"
+                    rx="12"
+                    fill="#121a28"
+                    stroke="#ffffff"
+                    stroke-opacity="0.1"
+                  />
+                  <circle cx={n.x - 48} cy={n.y} r="3.5" fill="#8093ff" />
+                  <text
+                    x={n.x + 6}
+                    y={n.y + 5}
+                    text-anchor="middle"
+                    fill="#cdd4e3"
+                    font-size="15"
+                    font-weight="500"
+                  >
+                    {n.label}
+                  </text>
+                </g>
+              ))
+            }
+            <!-- Hub -->
+            <rect x={hub.x - 86} y={hub.y - 30} width="172" height="60" rx="16" fill="#0b0f18" stroke="url(#hub-grad)" stroke-width="1.75"></rect>
+            <text x={hub.x} y={hub.y - 3} text-anchor="middle" fill="#eef1f7" font-size="16" font-weight="600">AI + Product</text>
+            <text x={hub.x} y={hub.y + 17} text-anchor="middle" fill="#9aa6bd" font-size="12.5">Engineering Engine</text>
+          </svg>
+        </div>
+
+        <!-- Soft glow behind the card -->
+        <div class="absolute -inset-6 -z-10 rounded-[3rem] bg-accent-deep/10 blur-3xl"></div>
+      </div>
+    </div>
+  </div>
+</section>

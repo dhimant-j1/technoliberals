@@ -1,0 +1,93 @@
+---
+const experience = [
+  {
+    title: 'Digital banking & wallet platforms',
+    line: 'Mobile banking, wallets, and account flows built for everyday reliability.',
+  },
+  {
+    title: 'Payment & transaction systems',
+    line: 'Merchant payments, bill payments, and reconciliation under real volume.',
+  },
+  {
+    title: 'E-commerce & marketplace platforms',
+    line: 'Storefronts and marketplaces connecting catalogues, orders, and payments.',
+  },
+  {
+    title: 'Duka.direct-style commerce ecosystem',
+    line: 'Wallet-based digital commerce linking merchants, orders, and delivery.',
+  },
+  {
+    title: 'Logistics & rider coordination',
+    line: 'Dispatch, ETA logic, and delivery tracking for field and rider teams.',
+  },
+  {
+    title: 'ERP & internal business systems',
+    line: 'Back-office workflows that cut manual work and add operational visibility.',
+  },
+  {
+    title: 'CRM & customer engagement',
+    line: 'Customer records, follow-ups, and engagement workflows teams actually use.',
+  },
+  {
+    title: 'AI agent MVPs & enterprise automation',
+    line: 'Scoped Claude agents and automations shipped into real operations.',
+  },
+  {
+    title: 'Product & engineering leadership',
+    line: 'Roadmaps, delivery governance, and teams coordinated across many products.',
+  },
+];
+
+const proofStatements = [
+  'Built and managed digital products serving 500k+ users',
+  'Experience across 9+ products',
+  'Led product and engineering teams of 20+ people',
+  'Delivered fintech, payment, commerce, ERP, logistics, and AI-agent platforms',
+  'Strong experience in Tanzania, East Africa, and India-based execution models',
+];
+---
+
+<section id="proof" class="section">
+  <div class="shell">
+    <div class="max-w-3xl">
+      <p class="eyebrow mb-5">Proof · Representative Experience</p>
+      <h2 class="text-3xl leading-tight sm:text-4xl">
+        Built from real execution across fintech, commerce, logistics, and enterprise operations.
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        The work below is representative experience drawn from products our founder and team have
+        built and led. We don't publish client names or logos without permission — so this speaks
+        to capability and track record, not marketing claims.
+      </p>
+    </div>
+
+    <ul class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        experience.map((item) => (
+          <li class="card card-hover p-5">
+            <h3 class="text-base font-semibold text-fg">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{item.line}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-4 card overflow-hidden p-6 sm:p-8">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <p class="eyebrow shrink-0">The track record</p>
+        <ul class="grid flex-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          {
+            proofStatements.map((statement) => (
+              <li class="flex items-start gap-3 text-sm text-muted">
+                <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true">
+                  <path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="text-fg/90">{statement}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

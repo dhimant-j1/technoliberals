@@ -1,0 +1,108 @@
+---
+const year = new Date().getFullYear();
+
+const servicesLinks = [
+  { label: 'AI Transformation & Claude', href: '#services' },
+  { label: 'Product & Technology Office', href: '#services' },
+  { label: 'Custom Product Engineering', href: '#services' },
+  { label: 'Fintech & Payment Systems', href: '#services' },
+  { label: 'Commerce & Logistics', href: '#services' },
+  { label: 'ERP, CRM & Digitization', href: '#services' },
+];
+
+const industriesLinks = [
+  { label: 'Banking & Microfinance', href: '#industries' },
+  { label: 'Payments & Wallets', href: '#industries' },
+  { label: 'E-commerce & Marketplaces', href: '#industries' },
+  { label: 'Logistics & Distribution', href: '#industries' },
+  { label: 'Healthcare & Education', href: '#industries' },
+  { label: 'Government & Enterprise', href: '#industries' },
+];
+
+const companyLinks = [
+  { label: 'Claude Partner', href: '#ai' },
+  { label: 'Proof', href: '#proof' },
+  { label: 'Process', href: '#process' },
+  { label: 'Engagement Models', href: '#engagement' },
+  { label: 'Book a Strategy Call', href: '#contact' },
+];
+---
+
+<footer class="border-t border-line bg-ink-soft/60">
+  <div class="shell py-14">
+    <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <!-- Brand -->
+      <div class="max-w-xs">
+        <div class="flex items-center gap-2.5">
+          <svg class="h-7 w-7" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="60" height="60" rx="16" fill="#0b0f18" stroke="#ffffff" stroke-opacity="0.12"></rect>
+            <path d="M18 22h28M32 22v22" stroke="url(#tl-foot)" stroke-width="6" stroke-linecap="round"></path>
+            <circle cx="32" cy="46" r="5" fill="#0b0f18" stroke="url(#tl-foot)" stroke-width="4"></circle>
+            <circle cx="18" cy="22" r="3" fill="#5fe3cf"></circle>
+            <circle cx="46" cy="22" r="3" fill="#8093ff"></circle>
+            <defs>
+              <linearGradient id="tl-foot" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8093ff"></stop>
+                <stop offset="1" stop-color="#5fe3cf"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="text-lg font-semibold tracking-tight">Technoliberals</span>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          AI Transformation &amp; Product Engineering for transaction-heavy businesses.
+        </p>
+        <a href="#contact" class="btn-secondary mt-6">Book a Strategy Call</a>
+      </div>
+
+      <!-- Services -->
+      <nav aria-label="Services">
+        <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-2">Services</h2>
+        <ul class="mt-4 space-y-2.5">
+          {servicesLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-muted transition hover:text-fg">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Industries -->
+      <nav aria-label="Industries">
+        <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-2">Industries</h2>
+        <ul class="mt-4 space-y-2.5">
+          {industriesLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-muted transition hover:text-fg">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Company / Contact -->
+      <nav aria-label="Company">
+        <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-2">Company</h2>
+        <ul class="mt-4 space-y-2.5">
+          {companyLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-muted transition hover:text-fg">{link.label}</a>
+            </li>
+          ))}
+          <li>
+            {/* TODO: Replace with your real contact email. */}
+            <a href="mailto:hello@technoliberals.com" class="text-sm text-muted transition hover:text-fg">
+              hello@technoliberals.com
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm text-muted-2">
+        &copy; {year} Technoliberals Inc. All rights reserved.
+      </p>
+      <p class="text-sm text-muted-2">Built for transaction-heavy businesses in emerging markets.</p>
+    </div>
+  </div>
+</footer>

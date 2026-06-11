@@ -1,0 +1,167 @@
+---
+const icons: Record<string, string> = {
+  ai: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 9.5h5v5h-5z"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
+  office:
+    '<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+  engineering: '<path d="m8 6-6 6 6 6M16 6l6 6-6 6"/>',
+  fintech: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',
+  commerce:
+    '<path d="M6 2 3 6.5V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.5L18 2Z"/><path d="M3 6.5h18"/><path d="M16 10.5a4 4 0 0 1-8 0"/>',
+  erp: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  strategy:
+    '<circle cx="12" cy="12" r="9.5"/><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2 5.2-2Z"/>',
+};
+
+const services = [
+  {
+    id: 'A',
+    icon: 'ai',
+    title: 'AI Transformation & Claude Implementation',
+    description:
+      'Practical AI systems for support, finance, operations, product, and internal productivity.',
+    bullets: [
+      'Claude-powered business agents',
+      'Internal copilots and workflow automation',
+      'AI adoption roadmap and implementation',
+    ],
+    bestFor: 'Enterprises ready to move beyond AI experiments.',
+    span: 'lg:col-span-3',
+    featured: true,
+  },
+  {
+    id: 'B',
+    icon: 'office',
+    title: 'Product & Technology Office as a Service',
+    description:
+      'Senior product and technology leadership without building a full internal department.',
+    bullets: [
+      'Product roadmap and prioritization',
+      'Delivery governance',
+      'Engineering coordination',
+    ],
+    bestFor: 'Founders, CEOs, and business heads who need execution clarity.',
+    span: 'lg:col-span-3',
+  },
+  {
+    id: 'C',
+    icon: 'engineering',
+    title: 'Custom Product Engineering',
+    description:
+      'Mobile, web, backend, dashboards, APIs, and internal tools built for real operations.',
+    bullets: [
+      'Mobile and web applications',
+      'API-first backend platforms',
+      'Admin portals and dashboards',
+    ],
+    bestFor: 'Businesses that need reliable product delivery.',
+    span: 'lg:col-span-2',
+  },
+  {
+    id: 'D',
+    icon: 'fintech',
+    title: 'Fintech, Banking & Payment Systems',
+    description:
+      'Transaction-heavy systems for banks, wallets, merchants, and financial platforms.',
+    bullets: [
+      'Wallets, mobile banking, and merchant payments',
+      'Reconciliation and transaction monitoring',
+      'Loan, microfinance, and banking workflows',
+    ],
+    bestFor: 'Financial platforms operating in complex emerging markets.',
+    span: 'lg:col-span-2',
+  },
+  {
+    id: 'E',
+    icon: 'commerce',
+    title: 'E-commerce, Marketplace & Logistics Platforms',
+    description:
+      'Commerce platforms where catalogues, orders, payments, riders, and merchants connect.',
+    bullets: [
+      'Storefronts and marketplace systems',
+      'Order, inventory, and merchant workflows',
+      'Rider, delivery, and ETA coordination',
+    ],
+    bestFor: 'Retail, marketplace, and logistics businesses.',
+    span: 'lg:col-span-2',
+  },
+  {
+    id: 'F',
+    icon: 'erp',
+    title: 'ERP, CRM & Operational Digitization',
+    description:
+      'Internal systems that reduce manual work and improve operational visibility.',
+    bullets: [
+      'CRM and customer engagement workflows',
+      'Approval flows and reporting dashboards',
+      'Field onboarding and internal tools',
+    ],
+    bestFor: 'Businesses stuck between spreadsheets, WhatsApp, and disconnected software.',
+    span: 'lg:col-span-3',
+  },
+  {
+    id: 'G',
+    icon: 'strategy',
+    title: 'Emerging Market Digital Strategy',
+    description:
+      'Digital product planning built around local constraints, adoption realities, and cost.',
+    bullets: ['MVP planning', 'Local integrations', 'Rollout and adoption strategy'],
+    bestFor: 'Companies building for Africa, India, and other emerging markets.',
+    span: 'lg:col-span-3',
+  },
+];
+---
+
+<section id="services" class="section">
+  <div class="shell">
+    <div class="max-w-2xl">
+      <p class="eyebrow mb-5">Services</p>
+      <h2 class="text-3xl leading-tight sm:text-4xl">
+        Strategy, AI, and engineering — delivered as one team.
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        Seven focused practices that take a business from operational complexity to a shipped,
+        scalable product. Engage one, or combine them into an end-to-end delivery partnership.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-4 lg:grid-cols-6">
+      {
+        services.map((service) => (
+          <article
+            class:list={[
+              'card card-hover group flex flex-col',
+              service.span,
+              service.featured && 'border-accent/30 bg-panel-2/60',
+            ]}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <span class="tile">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[service.icon]} />
+              </span>
+              <span class="text-xs font-semibold text-muted-2" aria-hidden="true">{service.id}</span>
+            </div>
+
+            <h3 class="mt-5 text-lg font-semibold text-fg">{service.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-muted">{service.description}</p>
+
+            <ul class="mt-5 space-y-2.5">
+              {service.bullets.map((bullet) => (
+                <li class="flex items-start gap-2.5 text-sm text-muted">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true">
+                    <path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p class="mt-auto pt-6 text-sm text-muted-2">
+              <span class="font-semibold text-muted">Best for: </span>
+              {service.bestFor}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

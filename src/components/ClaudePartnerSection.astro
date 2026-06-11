@@ -1,0 +1,107 @@
+---
+const useCases = [
+  {
+    title: 'Customer Support Agents',
+    description: 'Resolve common requests, draft accurate replies, and escalate with full context.',
+  },
+  {
+    title: 'Operations Copilots',
+    description: 'Give ops teams a fast assistant across SOPs, tickets, and live operational data.',
+  },
+  {
+    title: 'Finance & Reconciliation Assistants',
+    description: 'Explain mismatches, summarise ledgers, and shorten the reconciliation cycle.',
+  },
+  {
+    title: 'Merchant & Field Team Agents',
+    description: 'On-the-ground answers for onboarding, pricing, and day-to-day process questions.',
+  },
+  {
+    title: 'AI-Assisted CRM',
+    description: 'Summarise accounts, draft follow-ups, and surface the next best action.',
+  },
+  {
+    title: 'Internal Knowledge Assistants',
+    description: 'Answer staff questions from policies, documentation, and connected systems.',
+  },
+  {
+    title: 'Product Documentation Support',
+    description: 'Turn specs, tickets, and decisions into clear, current product documentation.',
+  },
+  {
+    title: 'Secure System Integration',
+    description: 'Connect Claude to existing systems with access controls and clear guardrails.',
+  },
+];
+---
+
+<section id="ai" class="section">
+  <div class="shell">
+    <div
+      class="relative overflow-hidden rounded-4xl border border-line bg-panel/60 p-6 sm:p-10 lg:p-12"
+    >
+      <!-- Soft, restrained gradient wash to mark this as a certification block -->
+      <div
+        class="pointer-events-none absolute inset-0 -z-10"
+        aria-hidden="true"
+        style="background: radial-gradient(40rem 22rem at 85% -10%, rgb(95 227 207 / 0.10), transparent 60%), radial-gradient(36rem 20rem at 0% 0%, rgb(91 108 255 / 0.12), transparent 60%);"
+      >
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+        <!-- Badge + positioning -->
+        <div>
+          <div class="inline-flex items-center gap-3 rounded-2xl border border-accent/30 bg-white/[0.03] p-2 pr-5">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-accent to-accent-2 text-ink">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true">
+                <path d="M12 2.5 4 6v6c0 4.5 3.2 7.6 8 9.5 4.8-1.9 8-5 8-9.5V6l-8-3.5Z" stroke-linejoin="round" />
+                <path d="m9 12 2.2 2.2L15.5 10" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <div class="leading-tight">
+              <p class="text-sm font-semibold text-fg">Claude Partner Network</p>
+              <p class="text-xs font-medium uppercase tracking-[0.16em] text-accent-soft">Qualified</p>
+            </div>
+          </div>
+
+          <h2 class="mt-7 text-3xl leading-tight sm:text-4xl">Claude Partner Network Qualified</h2>
+
+          <p class="mt-5 text-lg leading-relaxed text-muted">
+            Technoliberals is now a Claude Partner after qualifying through the Claude Partner
+            Network. We help enterprises use Claude to build practical AI workflows across finance,
+            commerce, support, operations, logistics, and internal productivity.
+          </p>
+
+          <p class="mt-4 text-base leading-relaxed text-muted-2">
+            Our focus is not AI theatre. We identify where Claude can reduce manual work, improve
+            decision speed, assist teams, and connect with real business systems.
+          </p>
+
+          <a href="#contact" class="btn-primary mt-8">Discuss a Claude Use Case</a>
+        </div>
+
+        <!-- Use-case grid -->
+        <div>
+          <p class="eyebrow mb-4">Where Claude earns its place</p>
+          <ul class="grid gap-3 sm:grid-cols-2">
+            {
+              useCases.map((useCase) => (
+                <li class="card card-hover p-5">
+                  <div class="flex items-start gap-3">
+                    <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true">
+                      <path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div>
+                      <h3 class="text-sm font-semibold text-fg">{useCase.title}</h3>
+                      <p class="mt-1.5 text-sm leading-relaxed text-muted">{useCase.description}</p>
+                    </div>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

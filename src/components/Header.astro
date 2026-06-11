@@ -1,0 +1,132 @@
+---
+const navLinks = [
+  { label: 'Services', href: '#services' },
+  { label: 'AI', href: '#ai' },
+  { label: 'Industries', href: '#industries' },
+  { label: 'Proof', href: '#proof' },
+  { label: 'Process', href: '#process' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/70 backdrop-blur-md"
+  data-site-header
+>
+  <div class="shell flex h-[var(--header-h)] items-center justify-between gap-4">
+    <!-- Brand -->
+    <a
+      href="#top"
+      class="group flex items-center gap-2.5 rounded-lg py-1 text-fg"
+      aria-label="Technoliberals — home"
+    >
+      <svg
+        class="h-7 w-7"
+        viewBox="0 0 64 64"
+        fill="none"
+        aria-hidden="true"
+      >
+        <rect x="2" y="2" width="60" height="60" rx="16" fill="#0b0f18" stroke="#ffffff" stroke-opacity="0.12"></rect>
+        <path d="M18 22h28M32 22v22" stroke="url(#tl-mark)" stroke-width="6" stroke-linecap="round"></path>
+        <circle cx="32" cy="46" r="5" fill="#0b0f18" stroke="url(#tl-mark)" stroke-width="4"></circle>
+        <circle cx="18" cy="22" r="3" fill="#5fe3cf"></circle>
+        <circle cx="46" cy="22" r="3" fill="#8093ff"></circle>
+        <defs>
+          <linearGradient id="tl-mark" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#8093ff"></stop>
+            <stop offset="1" stop-color="#5fe3cf"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="text-[1.05rem] font-semibold tracking-tight">Technoliberals</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full px-3.5 py-2 text-sm font-medium text-muted transition hover:text-fg"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden items-center gap-3 lg:flex">
+      <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <button
+      type="button"
+      class="grid h-10 w-10 place-items-center rounded-lg border border-line text-fg lg:hidden"
+      aria-label="Open menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-icon-open>
+        <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+      </svg>
+      <svg class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-icon-close>
+        <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-line bg-ink/95 backdrop-blur-md lg:hidden"
+    data-menu-panel
+  >
+    <nav class="shell flex flex-col gap-1 py-4" aria-label="Mobile">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-xl px-3 py-3 text-base font-medium text-muted transition hover:bg-white/5 hover:text-fg"
+            data-menu-link
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a href="#contact" class="btn-primary mt-2 w-full" data-menu-link>Book a Strategy Call</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Lightweight, dependency-free mobile menu. Progressive enhancement only —
+  // anchors still work without JS.
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  const iconOpen = document.querySelector<SVGElement>('[data-icon-open]');
+  const iconClose = document.querySelector<SVGElement>('[data-icon-close]');
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-menu-link]');
+
+  function setOpen(open: boolean) {
+    if (!toggle || !panel) return;
+    panel.classList.toggle('hidden', !open);
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    setOpen(!open);
+  });
+
+  links.forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+  // Close on Escape for keyboard users.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+</script>

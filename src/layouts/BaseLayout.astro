@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  /** Path to the social share image, relative to the site root. */
+  ogImage?: string;
+}
+
+const {
+  title = 'Technoliberals Inc. | AI Transformation & Product Engineering',
+  description =
+    'Technoliberals helps fintech, commerce, logistics, and enterprise teams build AI-powered digital products for transaction-heavy operations in emerging markets.',
+  ogImage = '/og.svg',
+} = Astro.props;
+
+// Astro.site is set in astro.config.mjs. Fall back gracefully in dev.
+const siteUrl = Astro.site ?? new URL('https://technoliberals.com');
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Technoliberals Inc.',
+  alternateName: 'Technoliberals',
+  url: siteUrl.href,
+  description:
+    'AI transformation and product engineering for transaction-heavy businesses across fintech, commerce, logistics, and enterprise operations in emerging markets.',
+  slogan: 'AI Transformation & Product Engineering for Transaction-Heavy Businesses',
+  email: 'hello@technoliberals.com',
+  areaServed: ['Tanzania', 'East Africa', 'India', 'Emerging markets'],
+  knowsAbout: [
+    'AI transformation',
+    'Claude implementation',
+    'Product engineering',
+    'Fintech and payments',
+    'E-commerce and marketplaces',
+    'Logistics',
+    'ERP and CRM',
+    'Enterprise workflow automation',
+  ],
+  // TODO: Add `logo`, `sameAs` (LinkedIn, X, etc.), and `contactPoint`
+  // once those assets and channels are confirmed.
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#080b11" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#8093ff" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Technoliberals Inc." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Organization schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink"
+    >
+      Skip to content
+    </a>
+
+    <slot />
+  </body>
+</html>

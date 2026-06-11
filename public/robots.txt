@@ -1,0 +1,6 @@
+# Technoliberals Inc. — robots.txt
+User-agent: *
+Allow: /
+
+# TODO: Update the host below to your production domain when you deploy.
+Sitemap: https://technoliberals.com/sitemap.xml

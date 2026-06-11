@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static sitemap for a single-page site. The site is one indexable URL, so a
+  hand-written sitemap keeps the build dependency-free.
+  TODO: Update <loc> and <lastmod> when you change the domain or republish.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://technoliberals.com/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

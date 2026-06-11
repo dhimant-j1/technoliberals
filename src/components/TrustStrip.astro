@@ -1,0 +1,27 @@
+---
+const stats = [
+  { value: '500k+', label: 'Users impacted across products' },
+  { value: '9+', label: 'Digital products managed' },
+  { value: '20+', label: 'Engineers led' },
+  { value: '5', label: 'Domains: fintech, commerce, ERP, logistics, AI' },
+  { value: '2', label: 'Execution hubs: East Africa + India' },
+];
+---
+
+<section aria-label="Experience at a glance" class="border-y border-line bg-ink-soft/60">
+  <div class="shell py-10 sm:py-12">
+    <p class="mb-6 text-center text-xs font-medium uppercase tracking-[0.2em] text-muted-2">
+      Founder- and team-led experience
+    </p>
+    <dl class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
+      {
+        stats.map((stat) => (
+          <div class="bg-ink px-5 py-6 text-center">
+            <dt class="text-2xl font-semibold tracking-tight text-fg sm:text-3xl">{stat.value}</dt>
+            <dd class="mt-2 text-xs leading-snug text-muted">{stat.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Technoliberals">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8093ff"/>
+      <stop offset="1" stop-color="#5fe3cf"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#0b0f18"/>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity="0.12"/>
+  <!-- Abstract "transaction flow" monogram: a node feeding into a stem -->
+  <path d="M18 22h28" stroke="url(#g)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M32 22v22" stroke="url(#g)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="32" cy="46" r="5" fill="#0b0f18" stroke="url(#g)" stroke-width="4"/>
+  <circle cx="18" cy="22" r="3" fill="#5fe3cf"/>
+  <circle cx="46" cy="22" r="3" fill="#8093ff"/>
+</svg>

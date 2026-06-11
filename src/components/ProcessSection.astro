@@ -1,0 +1,56 @@
+---
+const steps = [
+  {
+    n: '01',
+    name: 'Diagnose',
+    line: 'Map the business process, users, systems, transaction flows, and operational pain points.',
+  },
+  {
+    n: '02',
+    name: 'Design',
+    line: 'Define the MVP, workflow, architecture, AI opportunity, integrations, and rollout plan.',
+  },
+  {
+    n: '03',
+    name: 'Build',
+    line: 'Ship lightweight, scalable, secure systems with clear delivery governance.',
+  },
+  {
+    n: '04',
+    name: 'Scale',
+    line: 'Improve adoption, analytics, automation, reliability, and continuous product evolution.',
+  },
+];
+---
+
+<section id="process" class="section">
+  <div class="shell">
+    <div class="max-w-2xl">
+      <p class="eyebrow mb-5">Process</p>
+      <h2 class="text-3xl leading-tight sm:text-4xl">From messy operations to shipped product.</h2>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        A direct path from understanding the operation to running it in production — with governance
+        at every step, not just at the end.
+      </p>
+    </div>
+
+    <ol class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        steps.map((step, index) => (
+          <li class="card relative flex flex-col p-6">
+            <div class="flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white/[0.03] text-sm font-semibold text-accent">
+                {step.n}
+              </span>
+              {index < steps.length - 1 && (
+                <span class="hidden h-px flex-1 bg-gradient-to-r from-line-strong to-transparent lg:block" aria-hidden="true" />
+              )}
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-fg">{step.name}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{step.line}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

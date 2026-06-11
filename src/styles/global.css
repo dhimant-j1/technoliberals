@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  :root {
+    color-scheme: dark;
+    --header-h: 4.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky header. */
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink text-fg font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle page glow + grid, rendered with zero markup and no images. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60rem 40rem at 50% -10%, rgb(91 108 255 / 0.16), transparent 60%),
+      radial-gradient(50rem 30rem at 100% 0%, rgb(95 227 207 / 0.06), transparent 55%);
+  }
+
+  ::selection {
+    background: rgb(128 147 255 / 0.32);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold tracking-tightest text-fg;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Components                                                          */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply scroll-mt-24 py-20 sm:py-24 lg:py-28;
+  }
+
+  /* Small uppercase label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-2;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-line-strong;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold leading-none transition duration-200 ease-smooth;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-ink shadow-glow hover:bg-accent-soft hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line-strong bg-white/[0.02] text-fg hover:border-accent/60 hover:bg-white/[0.05];
+  }
+
+  .btn-ghost {
+    @apply btn text-muted hover:text-fg;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-3xl border border-line bg-panel/70 p-6 shadow-soft backdrop-blur-[2px];
+  }
+
+  .card-hover {
+    @apply transition duration-300 ease-smooth hover:border-line-strong hover:bg-panel-2/70 hover:-translate-y-1;
+  }
+
+  /* Chip / pill */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-muted;
+  }
+
+  /* Gradient hairline used to separate major bands */
+  .rule {
+    @apply h-px w-full border-0 bg-gradient-to-r from-transparent via-line-strong to-transparent;
+  }
+
+  /* Numbered/decorative icon tile */
+  .tile {
+    @apply grid h-11 w-11 place-items-center rounded-xl border border-line bg-white/[0.03] text-accent;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                           */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-br from-fg via-fg to-accent-soft bg-clip-text text-transparent;
+  }
+
+  /* Faint blueprint grid, drawn with gradients (no image requests). */
+  .grid-overlay {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(60% 60% at 50% 30%, #000 0%, transparent 100%);
+    mask-image: radial-gradient(60% 60% at 50% 30%, #000 0%, transparent 100%);
+  }
+
+  .ring-line {
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion                                                     */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,46 @@
+---
+const industries = [
+  { name: 'Banking', line: 'Core flows, channels, and integrations that must stay reliable and auditable.' },
+  { name: 'Microfinance', line: 'Loan origination, repayment, and field collection workflows that scale.' },
+  { name: 'Payments', line: 'Reliable transaction flows, reconciliation, monitoring, and merchant operations.' },
+  { name: 'Digital Wallets', line: 'Balances, transfers, KYC, and limits that stay consistent under load.' },
+  { name: 'E-commerce', line: 'Catalogues, orders, inventory, payments, delivery, and customer experience.' },
+  { name: 'Marketplaces', line: 'Merchant onboarding, listings, payouts, and multi-party order flows.' },
+  { name: 'Logistics', line: 'Rider workflows, ETA logic, dispatch visibility, and delivery tracking.' },
+  { name: 'Retail & Distribution', line: 'Stock, pricing, routes, and field sales across many locations.' },
+  { name: 'Utilities', line: 'Billing, prepaid tokens, and high-volume payment collection.' },
+  { name: 'Healthcare', line: 'Records, appointments, and claims with privacy and access control.' },
+  { name: 'Education', line: 'Enrolment, fees, content, and engagement across large cohorts.' },
+  { name: 'Government & Public Sector', line: 'Citizen services, approvals, and reporting that work at scale.' },
+  { name: 'Enterprise Operations', line: 'Approvals, reporting, and internal tools that replace spreadsheets.' },
+];
+---
+
+<section id="industries" class="section">
+  <div class="shell">
+    <div class="max-w-2xl">
+      <p class="eyebrow mb-5">Industries</p>
+      <h2 class="text-3xl leading-tight sm:text-4xl">
+        Built for industries where operations are complex.
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        Wherever money, orders, customers, and data move at volume, the same patterns repeat —
+        and the same execution discipline pays off.
+      </p>
+    </div>
+
+    <ul class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        industries.map((industry) => (
+          <li class="card card-hover group p-5">
+            <div class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent transition group-hover:bg-accent-2" aria-hidden="true" />
+              <h3 class="text-base font-semibold text-fg">{industry.name}</h3>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{industry.line}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

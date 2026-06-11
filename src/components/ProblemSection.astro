@@ -1,0 +1,54 @@
+---
+const pains = [
+  'Disconnected systems',
+  'Manual workflows',
+  'Transaction failures',
+  'Slow approvals',
+  'Messy customer operations',
+  'Weak automation',
+  'Poor visibility',
+  'Products that do not scale',
+];
+---
+
+<section class="section">
+  <div class="shell">
+    <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+      <div>
+        <p class="eyebrow mb-5">The real problem</p>
+        <h2 class="text-3xl leading-tight sm:text-4xl">
+          Most digital transformation fails because it ignores execution.
+        </h2>
+      </div>
+
+      <div class="space-y-5 text-lg leading-relaxed text-muted">
+        <p>
+          Most companies do not have a technology problem alone. They have an
+          <span class="text-fg"> execution problem</span>.
+        </p>
+        <p>
+          Their teams deal with disconnected systems, manual workflows, transaction failures, slow
+          approvals, messy customer operations, weak automation, poor visibility, and products that
+          do not scale.
+        </p>
+        <p class="text-fg">
+          Technoliberals helps companies convert these operational problems into clear product
+          roadmaps, AI-enabled workflows, and production-grade digital systems.
+        </p>
+      </div>
+    </div>
+
+    <ul class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+      {
+        pains.map((pain) => (
+          <li class="flex items-center gap-3 bg-ink px-5 py-5 text-sm text-muted">
+            <svg class="h-4 w-4 shrink-0 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 9v4m0 4h.01M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0Z" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {pain}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
